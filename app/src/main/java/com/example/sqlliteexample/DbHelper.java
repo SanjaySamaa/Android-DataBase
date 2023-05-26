@@ -63,7 +63,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
     void deleteUsers(String row_id){
         SQLiteDatabase database =  this.getWritableDatabase();
-        long response = database.delete(DB_NAME,"_id=?",new String[]{row_id});
+        long response = database.delete(DB_TABLE,"_id=?",new String[]{row_id});
         if(response == -1) {
             Toast.makeText(context, "ERROR", Toast.LENGTH_SHORT).show();
         }
@@ -75,7 +75,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
     Cursor getAllData(){
         SQLiteDatabase database = this.getReadableDatabase();
-        String query = "SELECT * FROM " + DB_NAME;
+        String query = "SELECT * FROM " + DB_TABLE;
         Cursor cursor = null;
         if(database != null){
             cursor = database.rawQuery(query,null);
