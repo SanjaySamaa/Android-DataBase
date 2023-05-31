@@ -1,6 +1,7 @@
 package com.example.sqlliteexample;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +40,12 @@ public class RecylicerViewAdapter extends RecyclerView.Adapter<RecylicerViewAdap
             @Override
             public void onClick(View view) {
                 int i = holder.getAdapterPosition();
-                db.deleteUsers(String.valueOf(id.get(i)));
+//                db.deleteUsers(String.valueOf(id.get(i)));
+                Intent intent = new Intent(context,Update.class );
+                intent.putExtra("uname",String.valueOf(uname.get(i)));
+                intent.putExtra("upassword",String.valueOf(password.get(i)));
+                intent.putExtra("uid",String.valueOf(id.get(i)));
+                context.startActivity(intent);
             }
         });
     }

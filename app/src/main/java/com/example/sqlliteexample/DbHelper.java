@@ -53,7 +53,7 @@ public class DbHelper extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
         contentValues.put(USER_NAME,uname);
         contentValues.put(USER_PASSWORD,upassword);
-        long response = database.update(DB_NAME,contentValues,"_id=?",new String[]{row_id});
+        long response = database.update(DB_TABLE,contentValues,"_id=?",new String[]{row_id});
         if(response == -1) {
             Toast.makeText(context, "ERROR", Toast.LENGTH_SHORT).show();
         }
