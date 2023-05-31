@@ -29,7 +29,8 @@ public class Update extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DbHelper db = new DbHelper(Update.this);
-                db.updateUsers("updated user","updated password",id);
+//                db.updateUsers("updated user","updated password",id);
+                db.updateUsers(String.valueOf(uname.getText()),String.valueOf(upassword.getText()),id);
             }
         });
 
